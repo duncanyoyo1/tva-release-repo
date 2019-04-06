@@ -518,14 +518,14 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
   </extension>
 </addon>
 
-<addon id="plugin.video.realizer" version="2019.02.12.2" name="Realizer" provider-name="aenema">
+<addon id="plugin.video.realizer" version="2019.03.29" name="Realizer" provider-name="aenema">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
 		<import addon="script.module.beautifulsoup4" />
-		<import addon="script.module.metalibrary" />
-		<import addon="script.module.requests" />
-		<import addon="script.module.feedparser" />
-		<import addon="repository.aenemapy" />
+		<import addon="script.module.metalibrary" />	
+		<import addon="script.module.requests" />		
+		<import addon="script.module.feedparser" />			
+		<import addon="repository.aenemapy" />		
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="main.py">
 		<provides>video</provides>
@@ -533,9 +533,9 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 	<extension point="xbmc.service" library="service.py" start="startup" />
 	<extension point="xbmc.addon.metadata">
         <description>Realdebrid Cloud Addon with a twist!
-		This addon is inteded for use with content that you currently own! The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.
+		This addon is inteded for use with content that you currently own! The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.	
 		</description>
-
+	
 		<summary lang="en">Real-Debrid Cloud Addon</summary>
 		<platform>all</platform>
 		<forum>-</forum>
@@ -645,7 +645,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
     </extension>
 </addon>
 
-<addon id="plugin.video.freelivetv.tva" name="Free Live TV" provider-name="mhancoc7" version="0.4.8">
+<addon id="plugin.video.freelivetv.tva" name="Free Live TV" provider-name="mhancoc7" version="0.5.0">
     <requires>
         <import addon="xbmc.python" version="2.1.0" />
         <import addon="script.module.m7lib" version="0.1.0" />
@@ -792,20 +792,18 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 	</extension>
 </addon>
 
-<addon id="plugin.video.animaltv" name="Animal TV" provider-name="mhancoc7" version="0.3.3">
+<addon id="plugin.video.animaltv" name="Animal TV" provider-name="mhancoc7" version="0.3.5">
     <requires>
         <import addon="xbmc.python" version="2.1.0" />
-        <import addon="plugin.video.youtube" version="5.5.1"/>
+        <import addon="script.module.m7lib" version="0.1.0" />
     </requires>
-    <extension library="main.py" point="xbmc.python.pluginsource">
+    <extension library="default.py" point="xbmc.python.pluginsource">
         <provides>video</provides>
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Watch live streams of animals!</summary>
-        <description>Please visit [COLOR blue]https://www.tvaddons.co[/COLOR] for addon support! Watch live streams of animals from around the world.</description>
+        <description>Watch live streams of animals from around the world.</description>
         <platform>all</platform>
-        <forum>https://www.tvaddons.co/forums/</forum>
-        <website>https://www.tvaddons.co/</website>
     </extension>
 </addon>
 
@@ -859,14 +857,14 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
     </extension>
 </addon>
 
-<addon id="plugin.video.premiumizer" version="2019.02.12.2" name="Premiumizer" provider-name="aenema">
+<addon id="plugin.video.premiumizer" version="2019.03.19" name="Premiumizer" provider-name="aenema">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
 		<import addon="script.module.beautifulsoup4" />
-		<import addon="script.module.metalibrary" />
-		<import addon="script.module.requests" />
+		<import addon="script.module.metalibrary" />	
+		<import addon="script.module.requests" />	
 		<import addon="repository.aenemapy" />
-
+		
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="main.py">
 		<provides>video</provides>
@@ -874,9 +872,9 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 	<extension point="xbmc.service" library="service.py" start="startup" />
 	<extension point="xbmc.addon.metadata">
         <description>Premiumize Cloud Addon with a twist!
-		This addon is inteded for use with content that you currently own! The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.
+		This addon is inteded for use with content that you currently own! The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.	
 		</description>
-
+	
 		<summary lang="en">premiumizer Cloud Addon</summary>
 		<platform>all</platform>
 		<forum>-</forum>
