@@ -1,3 +1,9 @@
+[B]Version 0.3.7[/B]
+- Added error handling
+
+[B]Version 0.3.6[/B]
+- Updated to adjust for m7lib changes
+
 [B]Version 0.3.5[/B]
 - Started adding support for Python 3
 
