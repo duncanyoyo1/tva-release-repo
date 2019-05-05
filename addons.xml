@@ -147,7 +147,6 @@
             using DVR referral points. Signup for a free account through the following link today:
             http://watch.ustvnow.com
         </description>
-        <broken>api changes</broken>
         <platform>all</platform>
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
         <forum>https://www.tvaddons.co/forums/</forum>
@@ -318,7 +317,6 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
             for the USTVnow Plus addon. Signup for a free account through the following link today:
             http://watch.ustvnow.com
         </description>
-        <broken>api changes</broken>
         <disclaimer lang="en">The USTVnow Guide is based on the FTV Guide by rayw1986 and bluezed which is based on the
             original TV Guide addon by twinther.
         </disclaimer>
@@ -1318,7 +1316,7 @@ v0.12.9 (2018-04-16)
   </extension>
 </addon>
 
-<addon id="plugin.video.LiveTube" name="Live Tube" version="1.0.3" provider-name="Tvaddons">
+<addon id="plugin.video.LiveTube" name="Live Tube" version="1.0.4" provider-name="Tvaddons">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="plugin.video.youtube"/>
@@ -1331,6 +1329,36 @@ v0.12.9 (2018-04-16)
     <summary lang="en">Live On YouTube</summary>
     <description lang="en">Live On YouTube</description>
     <platform>all</platform>
+  </extension>
+</addon>
+
+<addon
+  id="plugin.video.imdb.trailers"
+  version="2.1.5"
+  name="IMDb Trailers"
+  provider-name="gujal">
+  <requires>
+    <import addon="xbmc.python"
+            version="2.2.5"/>
+	<import addon="script.common.plugin.cache"
+			version="2.5.5"/>
+	<import addon="script.module.beautifulsoup"
+			version="3.2.1"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+             library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>IMDb Trailers video add-on</summary>
+    <summary lang="tr">IMDb Fragmanları video eklentisi</summary>
+    <description>Watch movie trailers available on IMDb.</description>
+    <description lang="tr">IMDb'de bulunan film fragmanlarını izle.</description>
+    <language>en</language>
+    <platform>all</platform>
+    <license>GPL</license>
+    <forum></forum>
+    <website>http://www.imdb.com/</website>
   </extension>
 </addon>
 

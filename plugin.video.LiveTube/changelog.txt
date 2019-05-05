@@ -1,3 +1,4 @@
+v1.0.4 = Fixed Featured
 
 v1.0.3 = Added Webcam Live Streams
 
