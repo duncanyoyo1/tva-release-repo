@@ -918,14 +918,15 @@ Diese Addon verwendet pyDes von Todd Whiteman</disclaimer>
 
 </addon>
 
-<addon id="service.subtitles.subtitles.gr" name="Subtitles.gr" version="1.4.1" provider-name="Twilight0">
+<addon id="service.subtitles.subtitles.gr" name="Subtitles.gr" version="2.0.1" provider-name="Twilight0">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0"/>
-		<import addon="script.module.tulip" version="1.3.5" />
+		<import addon="script.module.tulip" version="2.3.5" />
 	</requires>
 	<extension point="xbmc.subtitle.module" library="service.py">
 	</extension>
 	<extension point="xbmc.addon.metadata">
+		<reuselanguageinvoker>false</reuselanguageinvoker>
 		<summary lang="en_GB">Subtitles.gr addon for subtitles</summary>
 		<summary lang="en_GB">Πρόσθετο υποτίτλων Subtitles.gr</summary>
         <description lang="en_GB">Search and download subtitles from subtitles.gr, xsubs.tv and subz.xyz</description>
@@ -936,10 +937,14 @@ Diese Addon verwendet pyDes von Todd Whiteman</disclaimer>
 		<website>http://www.subtitles.gr/</website>
 		<platform>all</platform>
 		<language>el</language>
-		<news>
-[B]1.4.1[/B]
-- Fixed subz.xyz
-		</news>
+		<news>[B]2.0.Χ[/B]
+- Extraction method for zip files is now performed by python library by default, kodi built-in as fallback
+- Removed notification for broad search terms and tweaked various functions and regexes to allow them
+- Install vfs.libarchive on Leia, whenever possible via builtin command
+- Replaced subtitles.gr domain with an alternative one by default, old one kept as optional
+- Sort subtitles.gr items according to rating (downloads)
+- Various other tweaks
+- Bumped dependencies</news>
 	</extension>
 </addon>
 
@@ -1079,6 +1084,34 @@ v5.2.14 (2017-01-23)
         <description></description>
         <platform>all</platform>
 	</extension>
+</addon>
+
+<addon id="plugin.video.resolveurl-tester" name="ResolveURL Tester" version="1.0.0" provider-name="Twilight0">
+    <requires>
+        <import addon="xbmc.python" version="2.24.0"/>
+        <import addon="script.module.tulip" version="2.3.6"/>
+        <import addon="script.module.resolveurl" version="5.0.29"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <reuselanguageinvoker>false</reuselanguageinvoker>
+        <summary lang="en">ResolveURL Tester</summary>
+        <description lang="en_GB">This addon can play and test various video and audio content from various sources supported by ResolveURL library.</description>
+        <disclaimer lang="en_GB">This addon does not provide any content, its sole purpose is to resolve web urls with the help of ResolveURL library</disclaimer>
+        <language>en</language>
+        <license>GNU GPL, version 2</license>
+        <website>https://twitter.com/TwilightZer0</website>
+        <source>https://github.com/Twilight0/plugin.video.resolveurl-tester</source>
+        <size>106257</size>
+        <news>[B]1.0.0[/B] - 16-05-2019
+- Initial version</news>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
 </addon>
 
 <addon id="plugin.video.netflix" name="Netflix" version="0.14.0" provider-name="libdev + jojo + asciidisco + caphm + castagnait">
