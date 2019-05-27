@@ -1311,11 +1311,11 @@ v0.12.9 (2018-04-16)
 </addon>
 
 <addon id="service.subloader"
-    name="Sub Loader" version="0.0.8" provider-name="DenimNani">
+    name="SubLoader" version="0.0.9" provider-name="DenimNani">
   <requires>
     <import addon="xbmc.python" version="2.14.0"/>
   </requires>
-  <extension point="xbmc.service" library="monitor.py" start="login"></extension>
+  <extension point="xbmc.service" library="monitor.py" start="login"></extension>  
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Auto Search for Subtitles on Play</summary>
     <description lang="en">Auto Search for Subtitles on Playback start if no subs are found.</description>
@@ -1332,7 +1332,11 @@ v0.12.9 (2018-04-16)
     <source></source>
     <forum></forum>
     <email></email>
-	<news>0.0.8
+	<news>0.0.9
+Release type detection improved.
+More clean up.
+		
+0.0.8
 Added query search if no valid IMDBNumber was found.
 Clean up.
 
@@ -1341,14 +1345,9 @@ Added Portuguese language.
 Added ability to choose (subtitle search dialog) as a fallback.
 
 0.0.6
-Added notifications if enabled.
-
-0.0.1
-Sub Loader is a fork from the well known autosubs addon.
-All credits to the original developers.</news>
+Added notifications, if enabled.
   </extension>
 </addon>
-
 
 <addon id="plugin.audio.televisiontunes" name="Themes" version="0.0.9" provider-name="MetalKettle">
 
