@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="plugin.video.imdb.trailers"
+  version="2.1.5"
+  name="IMDb Trailers"
+  provider-name="gujal">
+  <requires>
+    <import addon="xbmc.python"
+            version="2.2.5"/>
+	<import addon="script.common.plugin.cache"
+			version="2.5.5"/>
+	<import addon="script.module.beautifulsoup"
+			version="3.2.1"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+             library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary>IMDb Trailers video add-on</summary>
+    <summary lang="tr">IMDb Fragmanları video eklentisi</summary>
+    <description>Watch movie trailers available on IMDb.</description>
+    <description lang="tr">IMDb'de bulunan film fragmanlarını izle.</description>
+    <language>en</language>
+    <platform>all</platform>
+    <license>GPL</license>
+    <forum></forum>
+    <website>http://www.imdb.com/</website>
+  </extension>
+</addon>
