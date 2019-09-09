@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.premiumizer" version="2019.07.07" name="Premiumizer" provider-name="aenema">
+<addon id="plugin.video.premiumizer" version="2019.09.01" name="Premiumizer" provider-name="aenema">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
 		<import addon="script.module.beautifulsoup4" />
 		<import addon="script.module.metalibrary" />	
-		<import addon="script.module.requests" />
+		<import addon="script.module.requests" />	
 		
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="main.py">
@@ -18,6 +18,10 @@
 				<label>[COLOR red]Premiumizer[/COLOR]</label>
 				<item library="context/updatecache.py">
 					<label>New Cloud Cache</label>
+					<visible>System.HasAddon(plugin.video.premiumizer)</visible>
+				</item>
+				<item library="context/updatelibrary.py">
+					<label>Update Library</label>
 					<visible>System.HasAddon(plugin.video.premiumizer)</visible>
 				</item>
 				<item library="context/contextTools.py">
