@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.streamlink-tester" name="Streamlink Tester" version="1.5.0" provider-name="Twilight0">
+<addon id="plugin.video.streamlink-tester" name="Streamlink Tester" version="1.5.2" provider-name="Twilight0">
     <requires>
         <import addon="xbmc.python" version="2.26.0"/>
         <import addon="script.module.tulip" version="2.3.7"/>
@@ -21,7 +21,12 @@
         <website>https://twitter.com/TwilightZer0</website>
         <source>https://github.com/Twilight0/plugin.video.streamlink-tester</source>
         <size>106257</size>
-        <news>[B]1.5.1[/B] - 23-08-2019
+        <news>[B]1.5.2[/B] - 11-11-2019
+- Enhanced context menu items
+- Added sleep when doing file operations (useful for slower devices)
+- Bug fixes, mostly player related
+
+[B]1.5.1[/B] - 23-08-2019
 - Add exception to headers object loop finder in case it fails
 
 [B]1.5.0[/B] - 20-06-2019
@@ -55,14 +60,14 @@
   </extension>
 </addon>
 
-<addon id="plugin.program.reddit_browser" name="Reddit Browser" version="1.0.2" provider-name="tvaddons">
+<addon id="plugin.program.reddit_browser" name="Reddit Browser" version="1.0.3" provider-name="tvaddons">
     <requires>
         <import addon="xbmc.python" version="2.24.0"/>
-        <import addon="script.module.tulip" version="2.0.22"/>
+        <import addon="script.module.tulip" version="2.4.1"/>
         <import addon="script.module.pyxbmct" version="1.2.0"/>
         <import addon="script.module.urlresolver" version="5.0.06"/>
         <!--<import addon="script.module.resolveurl" version="5.0.06"/>-->
-        <import addon="plugin.video.youtube" version="6.1.4"/>
+        <import addon="plugin.video.youtube" version="6.5.0"/>
         <import addon="repository.xbmchub" version="3.0.0"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="main.py">
@@ -82,7 +87,13 @@
         <forum>https://www.tvaddons.co/forums/index.php</forum>
         <source>https://github.com/tvaddonsco/plugin.program.reddit_browser</source>
         <size>1711463</size>
-        <news>1.0.2 ~ 15-10-2018
+        <news>1.0.3 ~ 26-11-2019
+- Bumped dependencies
+- Various fixes for tulip's newer versions
+- Various tweaks and PEP8
+- Remove dormant domains
+
+1.0.2 ~ 15-10-2018
 - Minor fix for advanced search regarding the appendance of default hosts
 - Updated greek translation for first time prompts
 
@@ -115,6 +126,34 @@
     <website>https://www.tvaddons.co</website>
     <platform>all</platform>
   </extension>
+</addon>
+
+<addon id="plugin.video.dlive" name="dlive.tv" version="1.0.0" provider-name="winsomehax">
+    <requires>
+        <import addon="xbmc.python" version="2.25.0"/>
+        <import addon="script.module.routing" version="0.2.0"/>
+        <import addon="script.module.requests" version="2.9.1"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Viewing streams from dlive.tv</summary>
+        <description lang="en_GB">Viewing streams from dlive.tv</description>
+        <language></language>
+        <platform>all</platform>
+        <license>GPL-3.0</license>
+        <forum></forum>
+        <website></website>
+        <email>winsomehax@gmail.com</email>
+        <source></source>
+        <news></news>
+        <disclaimer>It's yours. If you break it, you can keep the pieces.</disclaimer>
+        <assets>
+            <icon>resources/icon.png</icon>
+            <fanart>resources/fanart.jpg</fanart>
+        </assets>
+    </extension>
 </addon>
 
 <addon id="plugin.audio.binaural"
@@ -258,7 +297,7 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 	</extension>
 </addon>
 
-<addon id="plugin.program.indigo" version="4.0.13" name="Indigo" provider-name="tvaddons">
+<addon id="plugin.program.indigo" version="4.0.14" name="Indigo" provider-name="tvaddons">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0"/>
 	</requires>
@@ -278,11 +317,11 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
     </extension>
 </addon>
 
-<addon id="plugin.video.resolveurl-tester" name="ResolveURL Tester" version="1.1.0" provider-name="Twilight0">
+<addon id="plugin.video.resolveurl-tester" name="ResolveURL Tester" version="1.1.1" provider-name="Twilight0">
     <requires>
         <import addon="xbmc.python" version="2.24.0"/>
-        <import addon="script.module.tulip" version="2.3.6"/>
-        <import addon="script.module.resolveurl" version="5.0.31"/>
+        <import addon="script.module.tulip" version="2.3.13"/>
+        <import addon="script.module.resolveurl" version="5.0.35"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>video</provides>
@@ -297,8 +336,13 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
         <license>GNU GPL, version 2</license>
         <website>https://twitter.com/TwilightZer0</website>
         <source>https://github.com/Twilight0/plugin.video.resolveurl-tester</source>
-        <size>106257</size>
-        <news>[B]1.1.0[/B] - 29-05-2019
+        <size>111206</size>
+        <news>[B]1.1.1[/B] - 11-11-2019
+- Minor tweaks here and there
+- Enhanced context menu items
+- Add sleep when adding a link to wait for directory refresh
+
+[B]1.1.0[/B] - 29-05-2019
 - Added a setting to force a specific host (useful for testing universal resolvers)
   > As url you must provide media id only
 
@@ -719,7 +763,7 @@ Channels and Playlists organized by categories. Source: Youtube Website.
     </extension>
 </addon>
 
-<addon id="plugin.video.premiumizer" version="2019.10.12" name="Premiumizer" provider-name="aenema">
+<addon id="plugin.video.premiumizer" version="2019.11.11" name="Premiumizer" provider-name="aenema">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
 		<import addon="script.module.beautifulsoup4" />
@@ -772,16 +816,17 @@ Channels and Playlists organized by categories. Source: Youtube Website.
 
 <addon id="plugin.video.amazon-test"
        name="Amazon VOD"
-       version="0.7.4"
+       version="0.7.9"
        provider-name="Sandmann79, Varstahl">
   <requires>
     <import addon="xbmc.python" version="2.24.0"/>
-    <import addon="script.module.beautifulsoup" version="3.2.1"/>
-    <import addon="script.module.mechanize" version="0.2.6"/>
+    <import addon="script.module.beautifulsoup4" version="4.6.2"/>
+    <import addon="script.module.mechanicalsoup" version="0.12.0"/>
     <import addon="script.module.pydes" version="2.0.1"/>
     <import addon="script.module.pyxbmct" version="1.1.7"/>
     <import addon="script.module.inputstreamhelper" version="0.2.4"/>
     <import addon="script.module.requests" version="2.9.1"/>
+    <import addon="script.module.kodi-six" version="0.0.5"/>
   </requires>
   <extension point="xbmc.python.pluginsource"
              library="default.py">
@@ -799,7 +844,7 @@ Channels and Playlists organized by categories. Source: Youtube Website.
 This Addon uses pyDes by Todd Whiteman</disclaimer>
     <disclaimer lang="de">Möglicherweise sind einge Teile dieses Addons in Ihrem Land illegal, Sie sollten dies unbedingt vor der Installation überprüfen.
 Diese Addon verwendet pyDes von Todd Whiteman</disclaimer>
-     <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+     <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
     <forum>http://www.kodinerds.net/index.php/Thread/44211-Release-Amazon-Prime-Instant-Video</forum>
     <source>https://github.com/Sandmann79/xbmc</source>
   </extension>
@@ -1033,7 +1078,7 @@ Release type detection improved.</news>
 <addon id="service.subtitles.subtitles.gr" name="Subtitles.gr" version="2.0.1" provider-name="Twilight0">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0"/>
-		<import addon="script.module.tulip" version="2.3.5" />
+		<import addon="script.module.tulip" version="2.3.13" />
 	</requires>
 	<extension point="xbmc.subtitle.module" library="service.py">
 	</extension>
@@ -1218,10 +1263,11 @@ v5.2.14 (2017-01-23)
 	</extension>
 </addon>
 
-<addon id="plugin.video.netflix" name="Netflix" version="0.15.8" provider-name="libdev + jojo + asciidisco + caphm + castagnait">
+<addon id="plugin.video.netflix" name="Netflix" version="0.15.11" provider-name="libdev + jojo + asciidisco + caphm + castagnait">
   <requires>
     <import addon="xbmc.python" version="2.26.0"/>
     <import addon="script.module.addon.signals" version="0.0.3"/>
+    <import addon="script.module.future" version="0.17.1"/>
     <import addon="script.module.inputstreamhelper" version="0.3.3"/>
     <import addon="script.module.pycryptodome" version="3.4.3"/>
     <import addon="script.module.requests" version="2.12.4"/>
@@ -1230,7 +1276,6 @@ v5.2.14 (2017-01-23)
     <provides>video</provides>
   </extension>
   <extension point="xbmc.service" library="service.py"/>
-  <extension point="xbmc.python.module" library="modules/enum"/>
   <extension point="xbmc.python.module" library="modules/mysql-connector-python"/>
   <extension point="xbmc.addon.metadata">
     <reuselanguageinvoker>true</reuselanguageinvoker>
@@ -1262,6 +1307,33 @@ v5.2.14 (2017-01-23)
     <forum>https://forum.kodi.tv/showthread.php?tid=329767</forum>
     <source>https://github.com/CastagnaIT/plugin.video.netflix</source>
     <news>
+v0.15.11 (2019-11-20)
+-Fixed a critical error on auto-update
+-Fixed some error on py3
+-Fix to handle dolby vision on Kodi 19
+-Updated fr_fr, nl_nl translations
+-Minor fixes
+
+v0.15.10 (2019-11-17)
+-Fixed error in exporting to Kodi library due to wrong settings name
+-Updated de_de, pt_br translations
+
+v0.15.9 (2019-11-16)
+-Removed limit to perform auto-update and auto-sync with my list only with main profile
+-Added possibility to choose the profile to perform auto-sync with my list
+-Auto-sync with my list now sync also the movies
+-Auto-update now can be performed in manual and scheduled mode
+-Purge library now ensures complete cleaning of the database and files
+-Added possibility to disable sort order of my list from addon settings
+-Updated user agents
+-Modified debug logging in order to save cpu load
+-Fixed pagination of episodes
+-Fixed unhandled error of membership user account status
+-When set to one profile the Kodi library is no longer modified by other profiles
+-A lot of fixes/improvements to compatibility between py2 and py3
+-Updated it, pl, pt_BR, hr_HR translations
+-Minor fixes
+
 v0.15.8 (2019-10-31)
 -Fixed addon open issue caused to a broken cookies
 -Updated de translations
