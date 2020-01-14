@@ -698,6 +698,56 @@ Channels and Playlists organized by categories. Source: Youtube Website.
 	</extension>
 </addon>
 
+<addon id="plugin.program.reddit_navigator" name="Reddit Navigator" version="1.0.5" provider-name="Twilight0">
+    <requires>
+        <import addon="xbmc.python" version="2.24.0"/>
+        <import addon="script.module.tulip" version="2.4.1"/>
+        <import addon="script.module.pyxbmct" version="1.2.0"/>
+        <import addon="script.module.resolveurl" version="5.0.37"/>
+        <import addon="plugin.video.youtube" version="6.5.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video audio image executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <reuselanguageinvoker>false</reuselanguageinvoker>
+        <platform>all</platform>
+        <summary lang="en_GB">Reddit Navigator addon</summary>
+        <summary lang="el_GR">Πρόσθετο Reddit Navigator</summary>
+        <description lang="en_GB">Reddit Navigator is an addon able to browse Reddit and play various forms of media and show text comments</description>
+        <description lang="el_GR">Το πρόσθετο Reddit Navigator είναι μια μικροεφαρμογή πλοήγησης του Reddit που επιτρέπει την αναπαραγωγή διαφόρων ειδών πολυμέσων και προβολή σχολίων και νημάτων</description>
+        <disclaimer lang="en_GB">Kodi is a registered trademark of the XBMC Foundation.</disclaimer>
+        <language>en</language>
+        <license>GNU GPL, version 2</license>
+        <source>https://github.com/Twilight0/plugin.program.reddit_navigator</source>
+        <size>1711463</size>
+        <news>1.0.X ~ 05-01-2020
+- Initial Version, forked from Reddit Browser
+- Replaced urlresolver with resolveurl
+- Changed some default settings
+- Several bug fixes
+- Changed artwork
+- Changed user agent string
+- Changed app token
+- Restored a window call function which didn't work on Leia
+- Removed "depth" variable because it was supposed to be used on flat comments tree
+- Fixed saved items menu
+- Fixed user icon for my account menu
+- Fixed some misbehaviour on search menus
+- Fixed reddit videos playback
+- Removed capability to install plexus
+- Simplified actions on advanced authorization option
+- Added a cancellation button and exception handling on wrong username/password
+- Optionally notify user on token refresh, now defaults to off
+- Optionally open the first time prompt (read me)
+- Various other minor tweaks</news>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+
 <addon id="plugin.video.animaltv" name="Animal TV" provider-name="mhancoc7" version="0.4.4">
     <requires>
         <import addon="xbmc.python" version="2.1.0" />
@@ -1075,33 +1125,38 @@ Release type detection improved.</news>
   </extension>
 </addon>
 
-<addon id="service.subtitles.subtitles.gr" name="Subtitles.gr" version="2.0.1" provider-name="Twilight0">
+<addon id="service.subtitles.subtitles.gr" name="Subtitles.gr" version="3.0.2" provider-name="Twilight0">
 	<requires>
 		<import addon="xbmc.python" version="2.24.0"/>
-		<import addon="script.module.tulip" version="2.3.13" />
+		<import addon="script.module.tulip" version="2.4.2" />
 	</requires>
 	<extension point="xbmc.subtitle.module" library="service.py">
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<reuselanguageinvoker>false</reuselanguageinvoker>
-		<summary lang="en_GB">Subtitles.gr addon for subtitles</summary>
-		<summary lang="en_GB">Πρόσθετο υποτίτλων Subtitles.gr</summary>
-        <description lang="en_GB">Search and download subtitles from subtitles.gr, xsubs.tv and subz.xyz</description>
-		<description lang="el_GR">Εύρεση και λήψη υποτίτλων από τα subtitles.gr, xsubs.tv και subz.xyz</description>
-		<disclaimer lang="en_GB">This service is only for Greek subtitles and not published nor endorsed by subtitles.gr, xsubs.tv and subz.xyz</disclaimer>
-		<disclaimer lang="el_GR">Υπηρεσία μόνο ελληνικών υποτίτλων που δεν έχει δημοσιευθεί ούτε εγκριθεί από τα subtitles.gr, xsubs.tv και subz.xyz</disclaimer>
+		<summary lang="en_GB">Subtitle service addon "subtitles.gr"</summary>
+		<summary lang="en_GB">Υπηρεσιακό πρόσθετο υποτίτλων "subtitles.gr"</summary>
+        <description lang="en_GB">Search and download subtitles from various sites</description>
+		<description lang="el_GR">Εύρεση και λήψη υποτίτλων από διαφόρους ιστοτόπους</description>
+		<disclaimer lang="en_GB">This service is only for Greek subtitles. It is not published nor endorsed by any of the sites supported</disclaimer>
+		<disclaimer lang="el_GR">Υπηρεσία μόνο ελληνικών υποτίτλων. Δεν έχει δημοσιευθεί ούτε εγκριθεί από οποιοδήποτε υποστηριζόμενο ιστότοπο</disclaimer>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
 		<website>http://www.subtitles.gr/</website>
 		<platform>all</platform>
 		<language>el</language>
-		<news>[B]2.0.Χ[/B]
-- Extraction method for zip files is now performed by python library by default, kodi built-in as fallback
-- Removed notification for broad search terms and tweaked various functions and regexes to allow them
-- Install vfs.libarchive on Leia, whenever possible via builtin command
-- Replaced subtitles.gr domain with an alternative one by default, old one kept as optional
-- Sort subtitles.gr items according to rating (downloads)
-- Various other tweaks
-- Bumped dependencies</news>
+		<news>[B]3.0.X[/B]
+- Removed subzxyz (subtitles were moved to opensubtitles.org)
+- Bypassed subtitles.gr/findsubtitles.eu domain completely and removed its setting
+- Added support for subs4free/subs4series, podnapisi
+- Added boolean setting for each site supported
+    > disable for faster searches (subs4free disabled by default)
+- Applied unicode ascii normalization
+- Added setting to sort subs by either subtitle name, source, rating, downloads
+- Results are now cached for two hours in order to reduce subsequent requests
+- Improved debug logging
+- Regex pattern tweaks for queries
+- Performance tweaks
+- Various other tweaks</news>
 	</extension>
 </addon>
 
@@ -1263,7 +1318,7 @@ v5.2.14 (2017-01-23)
 	</extension>
 </addon>
 
-<addon id="plugin.video.netflix" name="Netflix" version="0.16.1" provider-name="libdev + jojo + asciidisco + caphm + castagnait">
+<addon id="plugin.video.netflix" name="Netflix" version="0.16.2" provider-name="libdev + jojo + asciidisco + caphm + castagnait">
   <requires>
     <import addon="xbmc.python" version="2.26.0"/>
     <import addon="script.module.addon.signals" version="0.0.3"/>
@@ -1316,6 +1371,18 @@ v5.2.14 (2017-01-23)
     <forum>https://forum.kodi.tv/showthread.php?tid=329767</forum>
     <source>https://github.com/CastagnaIT/plugin.video.netflix</source>
     <news>
+v0.16.2 (2020-01-07)
+-Improved add-on startup
+-Improved loading of profiles list
+-Added in expert setting a choice to speed up service or addon startup
+-Fixed an issue that causing addon misbehaviour using multiple Kodi profiles
+-Fixed an issue that causing addon breakage with sqlite connections
+-Fixed some python 3 issues on Android
+-Handled cases of metadata not available
+-Permanently removed sharing Kodi videos settings between profiles
+-Updated de, es, it translations
+-Minor improvements
+
 v0.16.1 (2019-12-14)
 -Allowed to export individual seasons to the library (manual mode)
 -Dolby atmos audio streams are now specified (Kodi 19)
@@ -1333,20 +1400,6 @@ v0.16.1 (2019-12-14)
 -Added japanese language
 -Updated kr, hu, pt_br, fr
 -Many improvements to the code
-
-v0.16.0 (2019-11-29)
--Added new parental control settings
--Added new thumb rating to movies/tv shows
--Started migrating to watched status marks by profile
--Optimized startup code
--Better handled no internet connection
--Fixed an issue that breaks the service when there is no internet connection
--Fixed an issue in some specific cases request at startup credentials even if already saved
--Fixed an issue did not show any error to the user when the loading of profiles fails
--Fixed an issue that did not allow the display of the skip button in the Kodi library
--New Hungarian language
--Updated de, hr, it, pl, pt_br translations
--Other minor improvements/fixes
     </news>
   </extension>
 </addon>
