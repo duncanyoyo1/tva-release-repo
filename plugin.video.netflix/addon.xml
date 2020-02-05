@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.netflix" name="Netflix" version="0.14.0" provider-name="libdev + jojo + asciidisco + caphm + castagnait">
+<addon id="plugin.video.netflix" name="Netflix" version="0.16.2" provider-name="libdev + jojo + asciidisco + caphm + castagnait">
   <requires>
     <import addon="xbmc.python" version="2.26.0"/>
-    <import addon="script.module.requests" version="2.12.4"/>
-    <import addon="script.module.pycryptodome" version="3.4.3"/>
-    <import addon="script.module.inputstreamhelper" version="0.3.3"/>
     <import addon="script.module.addon.signals" version="0.0.3"/>
+    <import addon="script.module.future" version="0.17.1"/>
+    <import addon="script.module.inputstreamhelper" version="0.3.3"/>
+    <import addon="script.module.pycryptodome" version="3.4.3"/>
+    <import addon="script.module.requests" version="2.12.4"/>
   </requires>
   <extension point="xbmc.python.pluginsource" library="addon.py">
     <provides>video</provides>
   </extension>
-  <extension point="xbmc.service" library="service.py" start="login" />
+  <extension point="xbmc.service" library="service.py"/>
+  <extension point="xbmc.python.module" library="modules/mysql-connector-python"/>
   <extension point="xbmc.addon.metadata">
     <reuselanguageinvoker>true</reuselanguageinvoker>
     <summary lang="de_DE">Netflix</summary>
@@ -19,16 +21,30 @@
     <summary lang="en_GB">Netflix</summary>
     <description lang="en_GB">Netflix VOD Services Addon</description>
     <disclaimer lang="en_GB">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
+    <summary lang="nl_NL">Netflix</summary>
+    <description lang="nl_NL">Bekijk Netflix films en tvprogramma's in Kodi.</description>
+    <disclaimer lang="nl_NL">Sommige delen van deze add-on zijn mogelijk onwettig in jouw land - raadpleeg de lokale wetgeving alvorens deze add-on te installeren.</disclaimer>
+    <summary lang="ja_JP">Netflix</summary>
+    <description lang="ja_JP">Netflix VOD サービスアドオン</description>
+    <disclaimer lang="ja_JP">一部の国では、このアドオンが不法でありますので、設置する前に必ず関連法律を確認してください</disclaimer>
+    <summary lang="ko_KR">Netflix</summary>
+    <description lang="ko_KR">Netflix VOD 서비스애드온</description>
+    <disclaimer lang="ko_KR">일부 국가에서는 이 애드온의 일부가 불법일 수도 있으니, 설치하기전 관련 법을 확인하기 바랍니다.</disclaimer>
     <description lang="it_IT">Netflix Addon servizi VOD</description>
     <disclaimer lang="it_IT">Alcune parti di questo addon potrebbero non essere legali nel proprio paese di residenza - si prega di verificare le leggi locali prima dell'installazione.</disclaimer>
+    <summary lang="hu_HU">Netflix</summary>
+    <description lang="hu_HU">Netflix VOD kiegészítő a Kodihoz</description>
+    <disclaimer lang="hu_HU">Előfordulhat, hogy a kiegészítő néhány része nem törvényes az Ön országában - telepítés előtt tájékozódjon a helyi törvényekről.</disclaimer>
     <assets>
-      <icon>resources/icon.png</icon>
-      <fanart>resources/fanart.jpg</fanart>
-      <screenshot>resources/screenshot-01.jpg</screenshot>
-      <screenshot>resources/screenshot-02.jpg</screenshot>
-      <screenshot>resources/screenshot-03.jpg</screenshot>
+      <icon>resources/media/icon.png</icon>
+      <fanart>resources/media/fanart.jpg</fanart>
+      <screenshot>resources/media/screenshot-01.jpg</screenshot>
+      <screenshot>resources/media/screenshot-02.jpg</screenshot>
+      <screenshot>resources/media/screenshot-03.jpg</screenshot>
+      <screenshot>resources/media/screenshot-04.jpg</screenshot>
+      <screenshot>resources/media/screenshot-05.jpg</screenshot>
     </assets>
-    <language>en de es he hr it nl pl pt sk sv</language>
+    <language>en de es he hr hu it ja ko nl pl pt sk sv</language>
     <platform>all</platform>
     <license>MIT</license>
     <website>https://www.netflix.com</website>
@@ -36,140 +52,35 @@
     <forum>https://forum.kodi.tv/showthread.php?tid=329767</forum>
     <source>https://github.com/CastagnaIT/plugin.video.netflix</source>
     <news>
-v0.14.0 (2019-04-20)
-- Added initial auto-configuration at first run based on the OS type
-- Added initial configuration to Android devices (for 4K support)
-- Some updates to profiles and manifest data
-- Fixed view type and content type
-- Fixed error when fanart missing
-- Fixed "check your credentials" after login (again)
-- Other minor improvements
+v0.16.2 (2020-01-07)
+-Improved add-on startup
+-Improved loading of profiles list
+-Added in expert setting a choice to speed up service or addon startup
+-Fixed an issue that causing addon misbehaviour using multiple Kodi profiles
+-Fixed an issue that causing addon breakage with sqlite connections
+-Fixed some python 3 issues on Android
+-Handled cases of metadata not available
+-Permanently removed sharing Kodi videos settings between profiles
+-Updated de, es, it translations
+-Minor improvements
 
-v0.14.0 beta24 (2019-04-12)
-- Added pagination support of results
-- Added choice of type sorting of results (in settings, views)
-- Added workaround for locale+country problem es. spain-spain pt-breton etc.
-- Updated polish translation
-- Fixed "check your credentials" after login
-- Fixed unicode decode errors with library
-- Fixed loss of tv series and films exported
-- Fixed wrong results with search using special characters
-- Other fixes
-
-v0.14.0 beta23 (2019-03-17)
-- Fixed InvalidVideoId error when try to access a profile
-- Fixed UnicodeEncodeError when play a video with some particular languages
-- Fixed PersistentStorage went to remove existing files
-- Fixed storage of subtitle preference for TV Series
-- Fixed menu_title error when try to open any menu
-- Fixed error when try to open 'My list' when empty
-- Fixed UnicodeDecodeError when migrate library
-- No more double menu in sub-menus
-- Minor fix to Polish translation
-
-v0.14.0 beta22 (2019-03-08)
-- Fixed error when accessing profile (lolomo error due to netflix changes)
-- Exceeded the limit of the lists with only 40 results!
-- It is possible to customize the maximum limit of the results (exp.settings)
-- Reworked menus code (not yet finished)
-- Fixed missing menu titles on all submenus
-- Order of the menus is now respected
-- Fixed children profile menus
-- Added a new menu "recently added"
-- Updated polish translation
-
-v0.14.0 beta21 (2019-02-22)
-- Re-added option to disable VP9 profile
-- Added support to Atmos media flag
-- Added option to disable WebVTT subtitle
-- Added option to use hdcp 2.2 instead of 1.4 for 4K content
-- Fixed wrong number of channels in audio stream
-- Fixed subtitle default selection
-- Some cleaning to hdcp logic
-
-v0.14.0 beta20 (2019-02-10)
-- Update profiles and added VP9 Profile 2
-- Fixed saving preferences of audio/subtitle streams
-- Handle error in license request
-
-v0.14.0 beta19 (2019-01-29)
-- Reintroduced MSLv2 for manifest retrieval
-- Reintroduced get locale language from Netflix settings
-- Re-added h264 profile level 40
-- Fixed the default audio language selection
-- Changes to settings menu Views (works partially)
-- Fixed off-screen "skip recap" dialog
-- Fixed error on mastertoken renewal
-
-v0.14.0 beta18 (2018-11-24)
-- Replace Netflix HTTP Service with AddonSignals
-- Improved code maintainability
-- Improved caching TTL by content type
-- Fully unicode compatible
-- Discover more content (browse video lists for all shows and all movies)
-- Improved library integration (auto-sync with kodi library)
-- No longer an upper limit of 40 for the number of items to be displayed in a single listing
-- Improved error handling
-- Up Next integration (only for tests not yet working)
-- A long list of bugfixes
-
-v0.13.21 (2018-12-03)
-- License request version 2
-- Get locale language from Netflix settings
-- Fixed subtitles for ipsa &lt; 2.3.8
-- VP9 optional
-- Added more VP9 profiles and h264 profile level 40
-
-v0.13.20 (2018-11-29)
-- MSLv2 for manifest retrieval
-
-v0.13.19 (2018-11-24)
-- Fix VTT / VP9 issues
-
-v0.13.18 (2018-11-17)
-- Write correct codec into VP9 MPEG DAS profiles
-
-v0.13.17 (2018-11-16)
-- Add VP9 profiles to avoid PRK exception while downloading manifest
-- Android ESN generation enhanced
-
-v0.13.16 (2018-11-13)
-- WebVTT subtitles
-
-v0.13.13 (2018-09-13)
-- Fix disabling of intro skipping not working
-
-v0.13.12 (2018-08-21)
-- Fix issues with timeline markers
-
-v0.13.11 (2018-08-20)
-- Fix login issues
-- Fix fanarts for non-netflix originals
-- Add Korean translation
-- Update Italian translation
-- Add query parameter widget_display to suppress setting custom view modes when called from a widget
-- Skip intro and recap
-- Remember audio settings across all episodes of a show
-
-v0.13.9 (2018-06-14)
-- fix login issues after typo fix in netflix login page
-
-v0.13.8 (2018-06-07)
-- fix proxy communication
-- fix folder definition for image resources
-
-v0.13.7 (2018-05-28)
-- rework of login info parsing
-
-v0.13.0 (2018-04-26)
-- Android support WIDEVINE Cryptosession for MSL
-
-v0.12.9 (2018-04-16)
-- View for exported
-- Support for inputstreamhelper
-- Grab metadate for episodes on export
-- Auto export new episodes for exported shows
-- Auto update watched status inside kodi library
+v0.16.1 (2019-12-14)
+-Allowed to export individual seasons to the library (manual mode)
+-Dolby atmos audio streams are now specified (Kodi 19)
+-Added workaround to fix skin widgets
+-Handled subtitle properties for next version of InputStream Adaptive
+-Introduced accurate handling of subtitles (Kodi 19)
+-Improved handling of subtitles (Kodi 18)
+-Improved return to main page from search dialog
+-Improved cancel login dialog after the logout
+-Improved timeout on IPC over HTTP
+-Fixed an issue that showed the wrong label while browsing movies 
+-Fixed ParentalControl/Rating GUI on custom skins 
+-Fixed an issue that cause unicodedecode error on some android devices
+-Fixed an issue that can cause unicodedecode error in user/password
+-Added japanese language
+-Updated kr, hu, pt_br, fr
+-Many improvements to the code
     </news>
   </extension>
 </addon>

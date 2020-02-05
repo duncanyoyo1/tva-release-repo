@@ -1,0 +1,32 @@
+version: "2"
+plugins:
+  pep8:
+    enabled: true
+  radon:
+    enabled: true
+  markdownlint:
+    enabled: true
+checks:
+  method-complexity:
+    config:
+      threshold: 10
+ratings:
+  paths:
+    - "**.py"
+    - "**.md"
+exclude_paths:
+  - "docs/"
+  - "LICENSES/"
+  - "modules/"
+  - "resources/language/"
+  - "resources/media/"
+  - "resources/skins/"
+  - "resources/settings.xml"
+  - "test/"
+  - "addon.xml"
+  - "Contributing.md"
+  - "Code_of_Conduct.md"
+  - "LICENSE.md"
+  - "requirements.txt"
+  - "Makefile"
+  - "tox.ini"
